@@ -1,24 +1,169 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="05E-KD-epO">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="dja-ZV-9ZY">
+            <objects>
+                <navigationController id="05E-KD-epO" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0F1-Kd-2cJ">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UXI-xv-ASF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bom-1R-PYl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-731" y="-77"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="EasyPosterApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xfR-z3-M4J">
+                                <rect key="frame" x="16" y="182" width="361" height="595"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLt-D9-pSF">
+                                        <rect key="frame" x="128.33333333333334" y="0.0" width="104.66666666666666" height="38.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Tải ảnh lên"/>
+                                        <connections>
+                                            <action selector="tapUpload:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RPR-HT-7pJ"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aOO-D9-4hG">
+                                        <rect key="frame" x="0.0" y="58.333333333333343" width="361" height="200.00000000000003"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="i4g-TV-UxQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="120.33333333333333" height="200"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QSR-mH-mCq">
+                                                        <rect key="frame" x="0.0" y="0.0" width="120.33333333333333" height="158"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                    </imageView>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mAE-bO-cCv">
+                                                        <rect key="frame" x="0.0" y="165.99999999999997" width="120.33333333333333" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jcm-lQ-WGi">
+                                                <rect key="frame" x="120.33333333333334" y="0.0" width="120.33333333333334" height="200"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gJB-eq-GQL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="120.33333333333333" height="158"/>
+                                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                    </imageView>
+                                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="spj-yo-A0D">
+                                                        <rect key="frame" x="0.0" y="165.99999999999997" width="120.33333333333333" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MxS-Zd-evd">
+                                                <rect key="frame" x="240.66666666666671" y="0.0" width="120.33333333333334" height="200"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3se-ys-aZu">
+                                                        <rect key="frame" x="0.0" y="0.0" width="120.33333333333333" height="158"/>
+                                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                    </imageView>
+                                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên 3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WeQ-w5-1d4">
+                                                        <rect key="frame" x="0.0" y="165.99999999999997" width="120.33333333333333" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="zIh-1h-7RQ"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5J-Em-7qx">
+                                        <rect key="frame" x="128.33333333333334" y="278.33333333333331" width="104.66666666666666" height="38.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Tạo Poster"/>
+                                        <connections>
+                                            <action selector="tapCreatePoster:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NHq-ij-3DE"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="syc-Ko-g1h">
+                                        <rect key="frame" x="0.0" y="336.66666666666663" width="361" height="200"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="OkN-j4-1mI"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szP-0b-6nf">
+                                        <rect key="frame" x="138" y="556.66666666666663" width="85.333333333333314" height="38.333333333333371"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Lưu ảnh"/>
+                                        <connections>
+                                            <action selector="tapCreatePoster:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LrX-kx-kfN"/>
+                                            <action selector="tapSave:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ToK-rU-9jM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="aOO-D9-4hG" firstAttribute="leading" secondItem="xfR-z3-M4J" secondAttribute="leading" id="Oi5-RE-nH6"/>
+                                    <constraint firstItem="syc-Ko-g1h" firstAttribute="leading" secondItem="xfR-z3-M4J" secondAttribute="leading" id="drt-p2-d0A"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xfR-z3-M4J" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="CDe-5Y-avi"/>
+                            <constraint firstItem="xfR-z3-M4J" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="vf4-Q7-X3z"/>
+                            <constraint firstItem="xfR-z3-M4J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="yMe-4H-jPa"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="h8I-uD-92h"/>
+                    <connections>
+                        <outlet property="finalImageView" destination="syc-Ko-g1h" id="9bK-iR-nCW"/>
+                        <outletCollection property="originnalImageView" destination="QSR-mH-mCq" collectionClass="NSMutableArray" id="5pj-ZC-5wc"/>
+                        <outletCollection property="originnalImageView" destination="gJB-eq-GQL" collectionClass="NSMutableArray" id="e9z-by-qkw"/>
+                        <outletCollection property="originnalImageView" destination="3se-ys-aZu" collectionClass="NSMutableArray" id="TfQ-43-Vhr"/>
+                        <outletCollection property="nameTextFields" destination="mAE-bO-cCv" collectionClass="NSMutableArray" id="e87-X4-yd9"/>
+                        <outletCollection property="nameTextFields" destination="spj-yo-A0D" collectionClass="NSMutableArray" id="nVk-f8-OSo"/>
+                        <outletCollection property="nameTextFields" destination="WeQ-w5-1d4" collectionClass="NSMutableArray" id="C30-21-6eA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="298" y="-77"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
