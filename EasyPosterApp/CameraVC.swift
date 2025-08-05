@@ -12,7 +12,7 @@ protocol CameraVCDelegate: AnyObject {
     func didCaptureImage(_ image: UIImage)
 }
 
-class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var flashButton: UIButton!
     @IBOutlet weak var switchCamButton: UIButton!
@@ -125,11 +125,7 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate, UINavigationCon
     }
     
     @IBAction func didTappedGallery(_ sender: Any) {
-        let picker = UIImagePickerController()
-        picker.sourceType = .photoLibrary
-        picker.delegate = self
-        picker.allowsEditing = false
-        present(picker, animated: true, completion: nil)
+        
     }
     
     @IBAction func didTappedSwitch(_ sender: Any) {
@@ -163,16 +159,4 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate, UINavigationCon
         navigationController?.popViewController(animated: true)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        picker.dismiss(animated: true)
-        
-        if let image = info[.originalImage] as? UIImage {
-            delegate?.didCaptureImage(image)
-            navigationController?.popViewController(animated: true)
-        }
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true)
-    }
 }

@@ -193,21 +193,15 @@ extension ViewController: CameraVCDelegate {
     }
 }
 
-// MARK: - PHPicker Delegate
-
 extension ViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true)
-        guard results.count == 5 else {
-            print("Cần chọn đủ 5 ảnh")
-            return
-        }
         var loadedImages: [UIImage] = []
         let dispatchGroup = DispatchGroup()
         
         results.forEach { result in
             dispatchGroup.enter()
-            result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+            result.itemProvider.loadObject(ofClass: UIImage.self) { image, error in
                 if let img = image as? UIImage {
                     loadedImages.append(img)
                 }
@@ -217,7 +211,13 @@ extension ViewController: PHPickerViewControllerDelegate {
         
         dispatchGroup.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
-            self.listImage = loadedImages
+            for image in loadedImages {
+                if self.listImage.count < 5 {
+                    self.listImage.append(image)
+                } else {
+                    break 
+                }
+            }
         }
     }
 }
