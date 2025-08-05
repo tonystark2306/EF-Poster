@@ -79,7 +79,7 @@ class ViewController: UIViewController {
 
     private func openCamera() {
         guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-            print("Thiết bị không có camera")
+            print("Camera is unavailable")
             return
         }
         let cameraPicker = CameraVC()
@@ -88,7 +88,7 @@ class ViewController: UIViewController {
     }
 
     private func showPermissionAlert() {
-        let alert = UIAlertController(title: "Không có quyền truy cập camera", message: "Vui lòng cấp quyền trong Cài đặt.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Camera Permission Required", message: "Please allow camera permission in Settings", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
@@ -215,7 +215,7 @@ extension ViewController: PHPickerViewControllerDelegate {
                 if self.listImage.count < 5 {
                     self.listImage.append(image)
                 } else {
-                    break 
+                    break
                 }
             }
         }

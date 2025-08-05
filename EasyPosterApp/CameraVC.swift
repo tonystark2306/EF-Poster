@@ -79,7 +79,7 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate, UINavigationCon
     }
     
     private func showAlert() {
-        let alert = UIAlertController(title: "Cần quyền truy cập Camera", message: "Vui lòng cấp quyền truy cập Camera trong cài đặt", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Camera Permission Required", message: "Please allow camera permission in settings", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
@@ -146,13 +146,13 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate, UINavigationCon
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         guard error == nil else {
-            print("Lỗi: \(error!)")
+            print("Error: \(error!)")
             return
         }
         
         guard let imageData = photo.fileDataRepresentation(),
               let image = UIImage(data: imageData) else {
-            print("Could not convert photo to image")
+            print("error")
             return
         }
         delegate?.didCaptureImage(image)
