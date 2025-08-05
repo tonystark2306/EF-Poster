@@ -34,56 +34,90 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xfR-z3-M4J">
-                                <rect key="frame" x="16" y="182" width="361" height="595"/>
+                                <rect key="frame" x="16" y="182" width="361" height="587"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLt-D9-pSF">
-                                        <rect key="frame" x="128.33333333333334" y="0.0" width="104.66666666666666" height="38.333333333333336"/>
+                                        <rect key="frame" x="74.333333333333329" y="0.0" width="212.33333333333337" height="35.666666666666664"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Tải ảnh lên"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Upload or Take Photos">
+                                            <backgroundConfiguration key="background" cornerRadius="8">
+                                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                            </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="tapUpload:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RPR-HT-7pJ"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aOO-D9-4hG">
-                                        <rect key="frame" x="0.0" y="58.333333333333343" width="361" height="200.00000000000003"/>
+                                        <rect key="frame" x="0.0" y="55.666666666666657" width="361" height="200"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="i4g-TV-UxQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="120.33333333333333" height="200"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="72.333333333333329" height="200"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QSR-mH-mCq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="120.33333333333333" height="158"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="72.333333333333329" height="158"/>
                                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mAE-bO-cCv">
-                                                        <rect key="frame" x="0.0" y="165.99999999999997" width="120.33333333333333" height="34"/>
+                                                        <rect key="frame" x="0.0" y="166.00000000000003" width="72.333333333333329" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jcm-lQ-WGi">
-                                                <rect key="frame" x="120.33333333333334" y="0.0" width="120.33333333333334" height="200"/>
+                                                <rect key="frame" x="72.333333333333329" y="0.0" width="71.999999999999986" height="200"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gJB-eq-GQL">
-                                                        <rect key="frame" x="0.0" y="0.0" width="120.33333333333333" height="158"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="72" height="158"/>
                                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                     </imageView>
                                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="spj-yo-A0D">
-                                                        <rect key="frame" x="0.0" y="165.99999999999997" width="120.33333333333333" height="34"/>
+                                                        <rect key="frame" x="0.0" y="166.00000000000003" width="72" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MxS-Zd-evd">
-                                                <rect key="frame" x="240.66666666666671" y="0.0" width="120.33333333333334" height="200"/>
+                                                <rect key="frame" x="144.33333333333334" y="0.0" width="72.333333333333343" height="200"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3se-ys-aZu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="120.33333333333333" height="158"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="72.333333333333329" height="158"/>
                                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                     </imageView>
                                                     <textField opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên 3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WeQ-w5-1d4">
-                                                        <rect key="frame" x="0.0" y="165.99999999999997" width="120.33333333333333" height="34"/>
+                                                        <rect key="frame" x="0.0" y="166.00000000000003" width="72.333333333333329" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" tag="3" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kpB-BZ-5As">
+                                                <rect key="frame" x="216.66666666666666" y="0.0" width="71.999999999999972" height="200"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N43-Qc-efQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="72" height="158"/>
+                                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                                    </imageView>
+                                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên 4" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YDp-zs-4om">
+                                                        <rect key="frame" x="0.0" y="166.00000000000003" width="72" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" tag="4" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Tsg-hE-OW7">
+                                                <rect key="frame" x="288.66666666666669" y="0.0" width="72.333333333333314" height="200"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jmK-dr-xgR">
+                                                        <rect key="frame" x="0.0" y="0.0" width="72.333333333333329" height="158"/>
+                                                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                                    </imageView>
+                                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên 5" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UGf-MA-B0m">
+                                                        <rect key="frame" x="0.0" y="166.00000000000003" width="72.333333333333329" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -95,24 +129,36 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5J-Em-7qx">
-                                        <rect key="frame" x="128.33333333333334" y="278.33333333333331" width="104.66666666666666" height="38.333333333333314"/>
+                                        <rect key="frame" x="111.00000000000001" y="275.66666666666669" width="139.33333333333337" height="35.666666666666686"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Tạo Poster"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Create Poster">
+                                            <backgroundConfiguration key="background" cornerRadius="8">
+                                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                            </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="tapCreatePoster:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NHq-ij-3DE"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="syc-Ko-g1h">
-                                        <rect key="frame" x="0.0" y="336.66666666666663" width="361" height="200"/>
+                                        <rect key="frame" x="0.0" y="331.33333333333337" width="361" height="200"/>
                                         <color key="backgroundColor" systemColor="systemTealColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="OkN-j4-1mI"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szP-0b-6nf">
-                                        <rect key="frame" x="138" y="556.66666666666663" width="85.333333333333314" height="38.333333333333371"/>
+                                        <rect key="frame" x="148.33333333333334" y="551.33333333333337" width="64.666666666666657" height="35.666666666666629"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Lưu ảnh"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Save">
+                                            <backgroundConfiguration key="background" cornerRadius="8">
+                                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                            </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="tapCreatePoster:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LrX-kx-kfN"/>
                                             <action selector="tapSave:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ToK-rU-9jM"/>
@@ -142,6 +188,8 @@
                         <outletCollection property="nameTextFields" destination="mAE-bO-cCv" collectionClass="NSMutableArray" id="e87-X4-yd9"/>
                         <outletCollection property="nameTextFields" destination="spj-yo-A0D" collectionClass="NSMutableArray" id="nVk-f8-OSo"/>
                         <outletCollection property="nameTextFields" destination="WeQ-w5-1d4" collectionClass="NSMutableArray" id="C30-21-6eA"/>
+                        <outletCollection property="originnalImageView" destination="N43-Qc-efQ" collectionClass="NSMutableArray" id="d1w-nk-JVE"/>
+                        <outletCollection property="originnalImageView" destination="jmK-dr-xgR" collectionClass="NSMutableArray" id="TXa-cA-dgb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -154,13 +202,19 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
