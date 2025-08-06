@@ -36,9 +36,7 @@ class ViewController: UIViewController {
         setupUI()
     }
     
-    // Cải tiến 2: Thêm method để setup UI và reset button
     private func setupUI() {
-        // Có thể thêm reset button vào storyboard hoặc tạo programmatically
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Reset",
             style: .plain,
@@ -52,12 +50,11 @@ class ViewController: UIViewController {
             if imageView.tag < listImage.count {
                 imageView.image = listImage[imageView.tag]
             } else {
-                imageView.image = nil // Clear empty slots
+                imageView.image = nil
             }
         }
     }
     
-    // Cải tiến 2: Thêm method reset
     @objc private func resetImages() {
         let alert = UIAlertController(
             title: "Reset Images",
@@ -92,7 +89,6 @@ class ViewController: UIViewController {
         present(alert, animated: true)
     }
     
-    // Cải tiến 3: Tách method riêng cho photo library với limit động
     private func openPhotoLibrary() {
         var config = PHPickerConfiguration()
         let remainingSlots = max(0, 5 - listImage.count)
@@ -110,7 +106,6 @@ class ViewController: UIViewController {
     }
     
     private func requestCameraPermissionAndOpenCamera() {
-        // Kiểm tra xem còn slot không
         guard listImage.count < 5 else {
             showAlert(title: "Đã đủ ảnh", message: "Bạn đã có đủ 5 ảnh. Hãy reset để chụp ảnh mới.")
             return
