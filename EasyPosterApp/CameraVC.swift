@@ -25,7 +25,12 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate, UINavigationCon
     private var outputPhoto = AVCapturePhotoOutput()
     private var previewLayer: AVCaptureVideoPreviewLayer!
     private var captureDevice: AVCaptureDevice?
-    private var flashOn = 0
+    
+    private var flashMode: AVCaptureDevice.FlashMode = .off {
+        didSet {
+            updateFlashButton()
+        }
+    }
 
     weak var delegate: CameraVCDelegate?
     
@@ -38,6 +43,11 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate, UINavigationCon
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         previewLayer?.frame = previewView.bounds
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     private func checkPermission() {
@@ -91,19 +101,32 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate, UINavigationCon
         previewView.layer.insertSublayer(previewLayer, at: 0)
     }
     
-    @IBAction func didTappedFlash(_ sender: Any) {
-        flashOn += 1
-        var imageName = ""
-        if (flashOn % 3 == 1) {
+    private func updateFlashButton() {
+        let imageName: String
+        switch flashMode {
+        case .on:
             imageName = "icFlashOn"
-        }
-        else if (flashOn % 3 == 2) {
+        case .auto:
             imageName = "icFlashAuto"
-        }
-        else {
+        case .off:
+            imageName = "icFlashOff"
+        @unknown default:
             imageName = "icFlashOff"
         }
         flashButton.setImage(UIImage(named: imageName), for: .normal)
+    }
+    
+    @IBAction func didTappedFlash(_ sender: Any) {
+        switch flashMode {
+        case .off:
+            flashMode = .on
+        case .on:
+            flashMode = .auto
+        case .auto:
+            flashMode = .off
+        @unknown default:
+            flashMode = .off
+        }
     }
     
     @IBAction func didTappedClose(_ sender: Any) {
@@ -112,15 +135,7 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate, UINavigationCon
     
     @IBAction func didTappedCapture(_ sender: Any) {
         let settings = AVCapturePhotoSettings()
-        if (flashOn % 3 == 1) {
-            settings.flashMode = .on
-        }
-        else if (flashOn % 3 == 2) {
-            settings.flashMode = .auto
-        }
-        else {
-            settings.flashMode = .off
-        }
+        settings.flashMode = flashMode
         outputPhoto.capturePhoto(with: settings, delegate: self)
     }
     

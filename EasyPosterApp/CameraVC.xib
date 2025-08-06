@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -87,7 +88,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="labelColor"/>
+            <color key="backgroundColor" name="Neutral1"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1Gi-V8-Y82" secondAttribute="trailing" constant="45" id="5Me-Iz-DU7"/>
                 <constraint firstItem="1Gi-V8-Y82" firstAttribute="centerY" secondItem="bfV-Ca-jTe" secondAttribute="centerY" id="7Jl-OI-T1C"/>
@@ -113,9 +114,9 @@
         <image name="icOpenGallery" width="52" height="52"/>
         <image name="icSwitchCamera" width="36" height="36"/>
         <image name="icTakePhoto" width="76" height="76"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="Neutral1">
+            <color red="0.086274509803921567" green="0.098039215686274508" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

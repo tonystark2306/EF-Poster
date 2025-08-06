@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -41,7 +42,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Upload or Take Photos">
                                             <backgroundConfiguration key="background" cornerRadius="8">
-                                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                                <color key="backgroundColor" name="Button1"/>
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,6 +63,8 @@
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mAE-bO-cCv">
                                                         <rect key="frame" x="0.0" y="166.00000000000003" width="72.333333333333329" height="34"/>
+                                                        <color key="backgroundColor" name="Neutral2"/>
+                                                        <color key="textColor" name="Neutral3"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -76,6 +79,8 @@
                                                     </imageView>
                                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="spj-yo-A0D">
                                                         <rect key="frame" x="0.0" y="166.00000000000003" width="72" height="34"/>
+                                                        <color key="backgroundColor" name="Neutral2"/>
+                                                        <color key="textColor" name="Neutral3"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -90,6 +95,8 @@
                                                     </imageView>
                                                     <textField opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên 3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WeQ-w5-1d4">
                                                         <rect key="frame" x="0.0" y="166.00000000000003" width="72.333333333333329" height="34"/>
+                                                        <color key="backgroundColor" name="Neutral2"/>
+                                                        <color key="textColor" name="Neutral3"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -104,6 +111,8 @@
                                                     </imageView>
                                                     <textField opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên 4" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YDp-zs-4om">
                                                         <rect key="frame" x="0.0" y="166.00000000000003" width="72" height="34"/>
+                                                        <color key="backgroundColor" name="Neutral2"/>
+                                                        <color key="textColor" name="Neutral3"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -118,6 +127,8 @@
                                                     </imageView>
                                                     <textField opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên 5" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UGf-MA-B0m">
                                                         <rect key="frame" x="0.0" y="166.00000000000003" width="72.333333333333329" height="34"/>
+                                                        <color key="backgroundColor" name="Neutral2"/>
+                                                        <color key="textColor" name="Neutral3"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -133,7 +144,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Create Poster">
                                             <backgroundConfiguration key="background" cornerRadius="8">
-                                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                                <color key="backgroundColor" name="Button1"/>
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -154,7 +165,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Save">
                                             <backgroundConfiguration key="background" cornerRadius="8">
-                                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                                <color key="backgroundColor" name="Button1"/>
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -172,14 +183,16 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Neutral2"/>
                         <constraints>
                             <constraint firstItem="xfR-z3-M4J" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="CDe-5Y-avi"/>
                             <constraint firstItem="xfR-z3-M4J" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="vf4-Q7-X3z"/>
                             <constraint firstItem="xfR-z3-M4J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="yMe-4H-jPa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="h8I-uD-92h"/>
+                    <navigationItem key="navigationItem" id="h8I-uD-92h">
+                        <nil key="title"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="finalImageView" destination="syc-Ko-g1h" id="9bK-iR-nCW"/>
                         <outletCollection property="originnalImageView" destination="QSR-mH-mCq" collectionClass="NSMutableArray" id="5pj-ZC-5wc"/>
@@ -198,14 +211,17 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="Button1">
+            <color red="0.1256702177" green="0.84749516749999998" blue="0.81441877269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Neutral2">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Neutral3">
+            <color red="0.18431372549019609" green="0.20784313725490197" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -9,13 +9,7 @@ class ViewController: UIViewController {
     
     private var listImage: [UIImage] = [] {
         didSet {
-            if !listImage.isEmpty {
-                originnalImageView.forEach({
-                    if $0.tag < listImage.count {
-                        $0.image = listImage[$0.tag]
-                    }
-                })
-            }
+            updateImageViews()
         }
     }
     
@@ -39,6 +33,47 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    // Cải tiến 2: Thêm method để setup UI và reset button
+    private func setupUI() {
+        // Có thể thêm reset button vào storyboard hoặc tạo programmatically
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Reset",
+            style: .plain,
+            target: self,
+            action: #selector(resetImages)
+        )
+    }
+    
+    private func updateImageViews() {
+        originnalImageView.forEach { imageView in
+            if imageView.tag < listImage.count {
+                imageView.image = listImage[imageView.tag]
+            } else {
+                imageView.image = nil // Clear empty slots
+            }
+        }
+    }
+    
+    // Cải tiến 2: Thêm method reset
+    @objc private func resetImages() {
+        let alert = UIAlertController(
+            title: "Reset Images",
+            message: "Bạn có chắc muốn xóa tất cả ảnh và bắt đầu lại?",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Hủy", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Reset", style: .destructive) { _ in
+            self.listImage.removeAll()
+            self.finalImage = nil
+            self.finalImageView.image = nil
+            self.nameTextFields.forEach { $0.text = "" }
+        })
+        
+        present(alert, animated: true)
     }
 
     @IBAction func tapUpload(_ sender: UIButton) {
@@ -49,12 +84,7 @@ class ViewController: UIViewController {
         }))
         
         alert.addAction(UIAlertAction(title: "Choose from Library", style: .default, handler: { _ in
-            var config = PHPickerConfiguration()
-            config.selectionLimit = 5
-            config.filter = .images
-            let picker = PHPickerViewController(configuration: config)
-            picker.delegate = self
-            self.present(picker, animated: true)
+            self.openPhotoLibrary()
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -62,7 +92,30 @@ class ViewController: UIViewController {
         present(alert, animated: true)
     }
     
+    // Cải tiến 3: Tách method riêng cho photo library với limit động
+    private func openPhotoLibrary() {
+        var config = PHPickerConfiguration()
+        let remainingSlots = max(0, 5 - listImage.count)
+        
+        guard remainingSlots > 0 else {
+            showAlert(title: "Đã đủ ảnh", message: "Bạn đã có đủ 5 ảnh. Hãy reset để chọn ảnh mới.")
+            return
+        }
+        
+        config.selectionLimit = remainingSlots
+        config.filter = .images
+        let picker = PHPickerViewController(configuration: config)
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+    
     private func requestCameraPermissionAndOpenCamera() {
+        // Kiểm tra xem còn slot không
+        guard listImage.count < 5 else {
+            showAlert(title: "Đã đủ ảnh", message: "Bạn đã có đủ 5 ảnh. Hãy reset để chụp ảnh mới.")
+            return
+        }
+        
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized:
             openCamera()
@@ -79,7 +132,7 @@ class ViewController: UIViewController {
 
     private func openCamera() {
         guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-            print("Camera is unavailable")
+            showAlert(title: "Lỗi", message: "Camera không khả dụng")
             return
         }
         let cameraPicker = CameraVC()
@@ -88,7 +141,11 @@ class ViewController: UIViewController {
     }
 
     private func showPermissionAlert() {
-        let alert = UIAlertController(title: "Camera Permission Required", message: "Please allow camera permission in Settings", preferredStyle: .alert)
+        showAlert(title: "Camera Permission Required", message: "Please allow camera permission in Settings")
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
@@ -101,7 +158,7 @@ class ViewController: UIViewController {
         let renderer = UIGraphicsImageRenderer(bounds: frame)
         
         guard listImage.count == 5 else {
-            print("Cần đủ 5 ảnh để tạo poster.")
+            showAlert(title: "Chưa đủ ảnh", message: "Cần đủ 5 ảnh để tạo poster. Hiện tại: \(listImage.count)/5 ảnh.")
             return
         }
         
@@ -177,9 +234,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tapSave(_ sender: UIButton) {
-        if let savedImage = finalImage {
-            UIImageWriteToSavedPhotosAlbum(savedImage, nil, nil, nil)
+        guard let savedImage = finalImage else {
+            showAlert(title: "Chưa có poster", message: "Hãy tạo poster trước khi lưu.")
+            return
         }
+        UIImageWriteToSavedPhotosAlbum(savedImage, nil, nil, nil)
+        showAlert(title: "Đã lưu", message: "Poster đã được lưu vào thư viện ảnh.")
     }
 }
 
@@ -187,8 +247,6 @@ extension ViewController: CameraVCDelegate {
     func didCaptureImage(_ image: UIImage) {
         if listImage.count < 5 {
             listImage.append(image)
-        } else {
-            print("Đã đủ 5 ảnh")
         }
     }
 }
@@ -229,8 +287,6 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         if let image = info[.originalImage] as? UIImage {
             if listImage.count < 5 {
                 listImage.append(image)
-            } else {
-                print("Đã đủ 5 ảnh")
             }
         }
     }
